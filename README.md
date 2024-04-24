@@ -1,4 +1,5 @@
-ANGULAR BUILD-IN PIPES
+::ANGULAR BUILD-IN PIPES::
+
 Angular'ın kendi içinde gömülü halde gelen Pipe'ları vardır. Bunlar  AsyncPipe, CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, KeyValuePipe, LowerCasePipe ,PercentPipe, SlicePipe, TitleCasePipe ve UpperCasePipe'dır.
 
 -DatePipe:  Verilen tarih formatındaki veriyi biçimlendirmemizi sağlar.
