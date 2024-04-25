@@ -1,17 +1,6 @@
-::ANGULAR BUILD-IN PIPES::
+# Rentacar
 
-Angular'ın kendi içinde gömülü halde gelen Pipe'ları vardır. Bunlar  AsyncPipe, CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, KeyValuePipe, LowerCasePipe ,PercentPipe, SlicePipe, TitleCasePipe ve UpperCasePipe'dır.
-
--DatePipe:  Verilen tarih formatındaki veriyi biçimlendirmemizi sağlar.
--LowerCasePipe: Verilen stringin tüm harflerini küçültür.
--UpperCasePipe: Verilen stringin tüm harflerini büyütür.
--SlicePipe: Stringin belirli bir aralıktaki bölümünü göstermeye yarar.
-slice:index1:index2 şeklinde kullanılır ve index1-index2 arasındaki karakterleri gösterir.
--JSONPipe: Objenin JSON formatında görüntülenmesini sağlar.
--TitleCasePipe: Verilen stringin başlık şeklinde görüntülenmesini sağlar.
--PercentPipe: Verilen sayı değerini, yine verilen parametrelere göre %'lik biçimde yazdırmayı sağlar.
--AsyncPipe: Observable'ın veya Promise'in değerini doğrudan şablon içinde kullanmayı sağlar. Bu pipe, bir Observable'dan gelen değeri otomatik olarak izler ve şablonu günceller. Geliştirici herhangi bir manuel abonelik veya unsubscribe işlemi yapmadan bu veriyi kullanabilir.
--KeyValuePipe: Object ve mapleri for ile dönülebilir hala getirir.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
 
 ## Development server
 

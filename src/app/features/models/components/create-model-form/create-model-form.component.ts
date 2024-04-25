@@ -5,6 +5,8 @@ import { ModelsApiService } from '../../services/modelsApi.service';
 import { PostModelRequest } from '../../models/post-model-request';
 import { ControlErrorMessagePipe } from '../../../../core/pipes/control-error-message.pipe';
 import { Router, RouterModule } from '@angular/router';
+import { IfNotDirective } from '../../../../core/directives/if-not.directive';
+import { NoCharacterInputDirective } from '../../../../core/directives/no-character-input.directive';
 
 @Component({
   selector: 'app-create-model-form',
@@ -13,7 +15,9 @@ import { Router, RouterModule } from '@angular/router';
     CommonModule,
     ReactiveFormsModule,
     ControlErrorMessagePipe,
-    RouterModule
+    RouterModule,
+    IfNotDirective,
+    NoCharacterInputDirective
   ],
   templateUrl: './create-model-form.component.html',
   styleUrl: './create-model-form.component.scss',
@@ -66,6 +70,7 @@ export class CreateModelFormComponent {
   onFormSubmit() {
     if (this.form.invalid) {
       console.error('Form is invalid');
+      this.form.markAllAsTouched();
       return;
     }
     this.createModel();
