@@ -17,7 +17,7 @@ import { NoCharacterInputDirective } from '../../../../core/directives/no-charac
     ControlErrorMessagePipe,
     RouterModule,
     IfNotDirective,
-    NoCharacterInputDirective
+    NoCharacterInputDirective,
   ],
   templateUrl: './create-brand-form.component.html',
   styleUrl: './create-brand-form.component.scss',
@@ -30,7 +30,6 @@ export class CreateBrandFormComponent {
       '',
       [
         Validators.required,
-        Validators.pattern,
         Validators.minLength(3),
         Validators.maxLength(20)
       ],
@@ -70,6 +69,4 @@ export class CreateBrandFormComponent {
     }
     this.createBrand();
   }
-
-
 }

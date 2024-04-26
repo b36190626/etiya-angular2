@@ -6,6 +6,8 @@ import { ModelsListComponent } from '../../features/models/components/models-lis
 
 import { MainLayoutComponent } from '../../shared/layouts/main-layout/main-layout.component';
 import { FormsModule } from '@angular/forms';
+import { WelcomeDirective } from '../../core/directives/welcome.directive';
+import { WelcomePageComponent } from '../welcome-page/welcome-page.component';
 
 @Component({
   selector: 'app-home-page',
@@ -17,6 +19,8 @@ import { FormsModule } from '@angular/forms';
     MainLayoutComponent,
     ModelsListComponent,
     BrandsListComponent,
+    WelcomeDirective,
+    WelcomePageComponent
 
   ], //MainLayoutComponent pathler ile layout sağlanırsa importuna gerek kalmaz sildik.
   templateUrl: './home-page.component.html',

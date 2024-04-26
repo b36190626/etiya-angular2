@@ -1,26 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BrandsApiService } from '../../services/brandsApi.service';
 import { PutBrandRequest } from '../../models/put-brand-request';
 import { ControlErrorMessagePipe } from '../../../../core/pipes/control-error-message.pipe';
 import { Router } from '@angular/router';
+import { IfNotDirective } from '../../../../core/directives/if-not.directive';
 import { NoCharacterInputDirective } from '../../../../core/directives/no-character-input.directive';
 
 @Component({
   selector: 'app-update-brand-form',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    ControlErrorMessagePipe,
-    NoCharacterInputDirective,
-  ],
+  imports: [CommonModule, ReactiveFormsModule, ControlErrorMessagePipe, IfNotDirective, NoCharacterInputDirective],
   templateUrl: './update-brand-form.component.html',
   styleUrl: './update-brand-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,7 +21,11 @@ export class UpdateBrandFormComponent {
     id: [],
     name: [
       '',
-      [Validators.required, Validators.minLength(3), Validators.maxLength(20)],
+      [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20)
+      ],
     ],
   });
 
@@ -55,7 +50,7 @@ export class UpdateBrandFormComponent {
       complete: () => {
         console.log('Brand updated successfully');
         this.form.reset();
-        this.router.navigate(['/home/brands']);
+        this.router.navigate(['/home/brands'])
       },
     });
   }

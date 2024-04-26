@@ -18,7 +18,3 @@ export const securedRouteGuard: CanActivateFn = (route, state) => {
 
   return true;
 };
-
-// localstorage:
-// token = QKo%M7KdBZZrnhKWG8iCAbx&Wu!W$kyFW$Utn^vb!3dLe7bzKkdN%XEv#oFQRwFSs4txXK&ASdrj^&$SdoGia8qBu!jmR!bE4QZ&C8kEZS8f9Kr8V6B2qrycCTq^nJ7z
-// user_roles = ["admin"]

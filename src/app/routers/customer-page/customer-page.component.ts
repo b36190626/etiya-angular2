@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CustomerListComponent } from '../../features/customers/components/customer-list/customer-list.component';
-import { MultipleDirective } from '../../core/directives/multiple.directive';
 
 @Component({
   selector: 'app-customer-page',
@@ -9,7 +8,6 @@ import { MultipleDirective } from '../../core/directives/multiple.directive';
   imports: [
     CommonModule,
     CustomerListComponent,
-    MultipleDirective,
   ],
   templateUrl: './customer-page.component.html',
   styleUrl: './customer-page.component.scss',
