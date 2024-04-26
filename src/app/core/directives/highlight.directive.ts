@@ -4,31 +4,37 @@ import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/cor
   selector: '[appHighlight]',
   standalone: true,
 })
-export class HighlightDirective implements OnInit{
-  @Input("appHighlight") color: string = 'red'
+export class HighlightDirective implements OnInit {
+  @Input("appHighlight") bgColor: string = 'yellow';
+  @Input("appHighlightThen") secondBgColor: string = 'yellow';
+  @Input() color = 'black';
+  //input kullanılacaksa constructorda değil ngOnInit içinde yapılır.
 
+  constructor(private element: ElementRef<HTMLElement>) {}
 
-  constructor(private element : ElementRef<HTMLElement>){
-
-  }
-
-  ngOnInit(): void {
+  ngOnInit() {
     const span = document.createElement('span');
-    span.style.backgroundColor = '';
-    span.style.color = 'black'
-    span.innerText = "  On sale!  ";
+    span.style.backgroundColor ='yellow';
+    span.style.color = 'black';
+    span.innerText = ' On Sale!';
 
-    this.element.nativeElement.style.backgroundColor = this.color;
     this.element.nativeElement.appendChild(span);
+
+    this.element.nativeElement.style.color=this.color
+    this.element.nativeElement.style.backgroundColor = this.bgColor;
+
+    this.element.nativeElement.onclick = () => {
+      alert("You clicked me!")
+    }
   }
 
   @HostListener('mouseenter')
   onMouseEnter(){
-    this.element.nativeElement.style.backgroundColor = "red"
+    this.element.nativeElement.style.backgroundColor = 'lightblue'
   }
 
   @HostListener('mouseleave')
   onMouseLeave(){
-    this.element.nativeElement.style.backgroundColor = "aqua"
+    this.element.nativeElement.style.backgroundColor = this.bgColor;
   }
 }

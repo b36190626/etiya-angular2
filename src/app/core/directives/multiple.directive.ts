@@ -1,3 +1,4 @@
+
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
@@ -5,15 +6,15 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
   standalone: true,
 })
 export class MultipleDirective {
-  @Input('appMultiple') set repeatTimes(times: number) {
+  constructor(
+    private templateRef: TemplateRef<any>,
+    private viewContainer: ViewContainerRef
+  ) {}
+
+  @Input() set appMultiple(times: number) {
     this.viewContainer.clear();
     for (let i = 0; i < times; i++) {
       this.viewContainer.createEmbeddedView(this.templateRef);
     }
   }
-
-  constructor(
-    private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef
-  ) {}
 }

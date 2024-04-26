@@ -4,14 +4,17 @@
       <label for="name" class="col-form-label">Name:</label>
     </div>
     <div class="col-auto">
-      <input appNoCharacterInput type="text" id="name" formControlName="name" class="form-control" required>
+      <input type="text" appNoCharacterInput id="name" formControlName="name" class="form-control">
     </div>
     <div class="col-auto">
         <button class="btn btn-primary" type="submit" [disabled]="form.invalid" >Submit</button>
     </div>
   </div>
+
   <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="col-auto">
-    <span class="text-danger">{{ form.get('name')?.errors | controlErrorMessage }}</span>
+    <span class="text-danger">{{ form.get('name')!.errors | controlErrorMessage }}</span>
   </div>
-  <span class="text-success" *appIfNot="form.get('name')!.invalid">This field valid.</span>
+
+  <small *appIfNot="form.get('name')!.invalid" class="text-info" >This field valid.</small>
+
 </form>

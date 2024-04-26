@@ -30,6 +30,7 @@ export class CreateBrandFormComponent {
       '',
       [
         Validators.required,
+        Validators.pattern,
         Validators.minLength(3),
         Validators.maxLength(20)
       ],
@@ -69,4 +70,6 @@ export class CreateBrandFormComponent {
     }
     this.createBrand();
   }
+
+
 }

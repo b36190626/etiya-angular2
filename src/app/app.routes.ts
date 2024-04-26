@@ -10,6 +10,9 @@ import { UpdateModelPageComponent } from './routers/update-model-page/update-mod
 import { ModelDetailsPageComponent } from './routers/model-details-page/model-details-page.component';
 import { CustomerPageComponent } from './routers/customer-page/customer-page.component';
 import { RentalPageComponent } from './routers/rental-page/rental-page.component';
+import { securedRouteGuard } from './shared/guards/secured-route.guard';
+import { logableRouteGuard } from './shared/guards/logable-route.guard';
+import { confirmationRouteGuard } from './shared/guards/confirmation-route.guard';
 
 export const routes: Routes = [
   {
@@ -51,7 +54,12 @@ export const routes: Routes = [
   },
   {
     path:'brands/create',
-    component: CreateBrandPageComponent
+    component: CreateBrandPageComponent,
+    canActivate: [securedRouteGuard, logableRouteGuard], //secured-routeGuard
+    data: {
+      requiredUserRole: 'admin'
+    },
+    canDeactivate: [confirmationRouteGuard],
   },
   {
     path:'brands/update',
