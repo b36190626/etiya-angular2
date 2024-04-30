@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+li, p{
+  cursor: pointer;
+}
+
+.active, .list-group-item:hover {
+  background-color: #007bff;
+  color: white;
+}
