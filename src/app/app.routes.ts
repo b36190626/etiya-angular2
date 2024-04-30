@@ -4,7 +4,6 @@ import { HomePageComponent } from './routers/home-page/home-page.component';
 import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.component';
 import { TestPageComponent } from './routers/test-page/test-page.component';
 import { NotFoundPageComponent } from './routers/not-found-page/not-found-page.component';
-import { CreateBrandPageComponent } from './routers/create-brand-page/create-brand-page.component';
 import { CreateModelPageComponent } from './routers/create-model-page/create-model-page.component';
 import { UpdateModelPageComponent } from './routers/update-model-page/update-model-page.component';
 import { ModelDetailsPageComponent } from './routers/model-details-page/model-details-page.component';
@@ -12,6 +11,9 @@ import { CustomerPageComponent } from './routers/customer-page/customer-page.com
 import { RentalPageComponent } from './routers/rental-page/rental-page.component';
 import { securedRouteGuard } from './shared/guards/SecuredRoute.guard';
 import { logableRouteGuard } from './shared/guards/LogableRoute.guard';
+import { canLeaveGuard } from './shared/guards/canLeave.guard';
+import { CreateBrandPageComponent } from './routers/create-brand-page/create-brand-page.component';
+//import { confirmationRouteGuard } from './shared/guards/confirmation-route.guard';
 
 export const routes: Routes = [
   {
@@ -55,6 +57,7 @@ export const routes: Routes = [
     path:'brands/create',
     component: CreateBrandPageComponent,
     canActivate: [securedRouteGuard, logableRouteGuard],
+    canDeactivate: [canLeaveGuard],
     data: {
       requiredUserRole: 'admin',
     },
@@ -63,9 +66,11 @@ export const routes: Routes = [
     path:'brands/update',
     component: UpdateBrandPageComponent,
   },
+
   {
     path:'models/create',
-    component: CreateModelPageComponent
+    component: CreateModelPageComponent,
+    canDeactivate: [canLeaveGuard]
   },
   {
     path:'models/update',
